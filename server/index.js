@@ -66,7 +66,7 @@ app.get('/add', (req, res) => {
   const num2 = parseInt(4);
 
   // Spawn a child process that runs the Python script and passes in the arguments
-  const pythonProcess = spawn('python3', ['mymodule.py', num1, num2]);
+  const pythonProcess = spawn('python', ['mymodule.py', num1, num2]);
 
   // Listen for data from the Python process
   pythonProcess.stdout.on('data', (data) => {
