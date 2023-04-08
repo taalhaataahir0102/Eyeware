@@ -9,8 +9,7 @@
     ],
     "functions": {
       "mymodule": {
-        "runtime": "vercel-python-3.9",
-        "handler": "mymodule"
+        "runtime": "vercel-python-3.9"
       }
     }
  }
