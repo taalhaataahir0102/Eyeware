@@ -9,7 +9,7 @@ const Home = () => {
   const [result, setResult] = useState(null);
 
   const handleClick = async () => {
-    const response = await axios.post('http://localhost:4000/add', { a, b });
+    const response = await axios.post('"https://eyeware-x7ui-5683s11k9-taalhaataahir0102.vercel.app/add"', { a, b });
     console.log('result:', response.data.result);
     setResult(response.data.result);
   };
