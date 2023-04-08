@@ -4,6 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 const { spawn } = require('child_process');
 const fetch = require('node-fetch');
+const cv = require('opencv4nodejs');
 
 const app = express();
 
@@ -63,19 +64,8 @@ app.get('/review', async (req, res) => {
 app.post('/add', (req, res) => {
   const { a, b } = req.body;
   console.log(a,b);
-
-  const pythonProcess = spawn('python3', ['./add.py', a, b]);
-
-  pythonProcess.stdout.on('data', (data) => {
-    const result = data.toString();
-    console.log(result);
-    res.send({result});
-  });
-
-  pythonProcess.on('error', (err) => {
-    console.error('Python process error:', err);
-    res.status(500).send({ error: 'Internal server error' });
-  });
+  result = a+b;
+  res.send({result});
 });
 
 

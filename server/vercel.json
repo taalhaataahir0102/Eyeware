@@ -4,10 +4,7 @@
        { "src": "./index.js", "use": "@vercel/node" }
     ],
     "routes": [
-      {
-         "src": "/add",
-         "methods": ["POST"],
-         "dest": "/add.js"
-       }
-    ]
+       { "src": "/(.*)", "dest": "/" }
+    ],
+    "files": ["add.py"]
  }
