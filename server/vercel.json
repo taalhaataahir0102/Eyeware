@@ -9,6 +9,5 @@
          "methods": ["POST"],
          "dest": "/add.js"
        }
-    ],
-    "files": ["add.py"]
+    ]
  }
