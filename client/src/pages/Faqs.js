@@ -8,7 +8,7 @@ const FAQ = () => {
   const [faqs, setFaqs] = useState([]);
   useEffect(() => {
     async function fetchUsers() {
-      const response = await axios.get('https://eyeware-x7ui.vercel.app/faq');
+      const response = await axios.get('https://eyeware-x7ui-5683s11k9-taalhaataahir0102.vercel.app/faq');
       setFaqs(response.data);
     }
     fetchUsers();

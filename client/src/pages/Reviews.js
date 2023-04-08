@@ -7,7 +7,7 @@ const Reviews = () => {
   const [faqs, setFaqs] = useState([]);
   useEffect(() => {
     async function fetchUsers() {
-      const response = await axios.get('https://eyeware-x7ui.vercel.app/review');
+      const response = await axios.get('https://eyeware-x7ui-5683s11k9-taalhaataahir0102.vercel.app/review');
       setFaqs(response.data);
     }
     fetchUsers();
