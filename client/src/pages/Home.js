@@ -1,10 +1,28 @@
 import React from 'react';
 import './home.css';
+// import { useState, useEffect } from 'react';
 
 const Home = () => {
+
+  // const [users, setUsers] = useState([]);
+
+  // const handleClick = () => {
+  //   fetch('http://localhost:4000/test')
+  //     .then(response => response.json())
+  //     .then(data => setUsers(data))
+  //     .catch(error => console.error(error));
+  // };
   return (
     <React.Fragment>
-    <div className="logo">
+      {/* <div>
+      <button onClick={handleClick}>Get Users</button>
+      <ul>
+        {users.map(user => (
+          <li key={user._id}>{user.gg}</li>
+        ))}
+      </ul>
+    </div> */}
+      <div className="logo">
         <img src={ require('./images/logo.png') } alt="logo"/>
         <img src={ require('./images/header6.jpg') } alt="Logo"/>
         <img src={ require('./images/header7.jpeg') } alt="Logo"/>

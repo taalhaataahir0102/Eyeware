@@ -1,7 +1,18 @@
 import React from 'react';
 import './FAQ.css';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const FAQ = () => {
+
+  const [faqs, setFaqs] = useState([]);
+  useEffect(() => {
+    async function fetchUsers() {
+      const response = await axios.get('http://localhost:4000/faq');
+      setFaqs(response.data);
+    }
+    fetchUsers();
+  }, []);
   return (
     <React.Fragment>
     <div className="logo">
@@ -16,10 +27,18 @@ const FAQ = () => {
       </div>
     <div className="faq">
       <h2>Frequently Asked Questions</h2>
-      <div className="question">
+      {/* <div className="question">
         <h3>What is Ainak?</h3>
         <p>bla bla</p>
-      </div>
+      </div> */}
+      <div>
+      {faqs.map((user) => (
+        <div className="question">
+          <h2>{user.question}</h2>
+          <p>{user.answer}</p>
+        </div>
+      ))}
+    </div>
     </div>
     <br></br>
     </React.Fragment>

@@ -1,7 +1,17 @@
 import React from 'react';
 import './reviews.css';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Reviews = () => {
+  const [faqs, setFaqs] = useState([]);
+  useEffect(() => {
+    async function fetchUsers() {
+      const response = await axios.get('http://localhost:4000/review');
+      setFaqs(response.data);
+    }
+    fetchUsers();
+  }, []);
   return (
     <React.Fragment>
     <div className="logo">
@@ -19,11 +29,19 @@ const Reviews = () => {
         <br></br>
         <p className="left-aligned">Following are the reviews of our satisfied customers</p>
         <br></br>
-        <h2 className="left-aligned">Talha</h2>
+        {faqs.map((user) => (
+          <div>
+            <h2 className="left-aligned">{user.name}</h2>
+            <p className="left-aligned">{user.review}</p>
+            <br></br>
+          </div>
+          //<p className="left-aligned">Aynak Store provided me with quality glasses for my party. </p>
+      ))}
+        {/* <h2 className="left-aligned">Talha</h2>
 		<p className="left-aligned">Aynak Store provided me with quality glasses for my party. </p>
         <br></br>
         <h2 className="left-aligned">Shahzaib</h2>
-		<p className="left-aligned">Aynak Store provided me with quality glasses for my party. </p>
+		<p className="left-aligned">Aynak Store provided me with quality glasses for my party. </p> */}
 	  </div>
     <br></br>
     </React.Fragment>
