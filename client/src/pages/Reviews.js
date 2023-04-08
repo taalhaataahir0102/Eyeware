@@ -1,15 +1,24 @@
 import React from 'react';
 import './reviews.css';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 const Reviews = () => {
   const [faqs, setFaqs] = useState([]);
   useEffect(() => {
-    async function fetchUsers() {
-      const response = await axios.get('https://eyeware-x7ui-5683s11k9-taalhaataahir0102.vercel.app/review');
-      setFaqs(response.data);
-    }
+    // async function fetchUsers() {
+    //   const response = await axios.get('https://eyeware-x7ui-5683s11k9-taalhaataahir0102.vercel.app/review');
+    //   setFaqs(response.data);
+    // }
+    const fetchUsers = async () => {
+      const response = await fetch(
+        "https://eyeware-x7ui-5683s11k9-taalhaataahir0102.vercel.app/review"
+      ).then((response) => response.json());
+    
+      // update the state
+      setFaqs(response);
+      console.log(response)
+    };
     fetchUsers();
   }, []);
   return (

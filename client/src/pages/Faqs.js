@@ -1,16 +1,26 @@
 import React from 'react';
 import './FAQ.css';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 const FAQ = () => {
 
   const [faqs, setFaqs] = useState([]);
   useEffect(() => {
-    async function fetchUsers() {
-      const response = await axios.get('https://eyeware-x7ui-5683s11k9-taalhaataahir0102.vercel.app/faq');
-      setFaqs(response.data);
-    }
+    // async function fetchUsers() {
+    //   const response = await axios.get('https://eyeware-x7ui-5683s11k9-taalhaataahir0102.vercel.app/faq');
+    //   setFaqs(response.data);
+    //   console.log(response.data)
+    // }
+    const fetchUsers = async () => {
+      const response = await fetch(
+        "https://eyeware-x7ui-5683s11k9-taalhaataahir0102.vercel.app/faq"
+      ).then((response) => response.json());
+    
+      // update the state
+      setFaqs(response);
+      console.log(response)
+    };
     fetchUsers();
   }, []);
   return (
